@@ -8,6 +8,7 @@ import {Component, OnInit, signal, WritableSignal} from '@angular/core';
 export class SignalsComponent implements OnInit {
 
   count: WritableSignal<number> = signal(0);
+  todos: WritableSignal<any> = signal([{title: 'Angular Signals', done: false}]);
 
   constructor() {
   }
@@ -28,5 +29,17 @@ export class SignalsComponent implements OnInit {
 
   onResetCount() {
     this.count.set(0);
+  }
+
+  setTodoTrue() {
+    this.todos.mutate(value => {
+      value[0].done = true;
+    })
+  }
+
+  setTodoFalse() {
+    this.todos.mutate(value => {
+      value[0].done = false;
+    })
   }
 }

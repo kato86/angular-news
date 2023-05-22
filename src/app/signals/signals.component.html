@@ -1,6 +1,7 @@
 <div class="container p-2 mb-2">
   <h2>Signals</h2>
 </div>
+
 <div class="container border border-primary rounded p-4">
   <h2>Counter</h2>
   <p>Initial count number is: {{ count() }}</p>
@@ -9,5 +10,17 @@
     <button type="button" class="btn btn-outline-primary me-2 w-25" (click)="onIncrementCount()">+</button>
     <button type="button" class="btn btn-outline-primary me-2 w-25" (click)="onDecrementCount()">-</button>
     <button type="button" class="btn btn-outline-info w-25" (click)="onResetCount()">Reset</button>
+  </div>
+</div>
+
+<div class="container border border-primary rounded p-4 mt-3">
+  <h2>Todo List</h2>
+  <ul>
+    <li>{{todos()[0].title}} - {{todos()[0].done}}</li>
+  </ul>
+
+  <div class="d-flex ml-2">
+    <button type="button" class="btn btn-outline-primary me-2 w-25" (click)="setTodoTrue()">Set to true</button>
+    <button type="button" class="btn btn-outline-primary me-2 w-25" (click)="setTodoFalse()">Set to false</button>
   </div>
 </div>
