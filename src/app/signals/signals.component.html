@@ -1,1 +1,13 @@
-<h2>Signals</h2>
+<div class="container p-2 mb-2">
+  <h2>Signals</h2>
+</div>
+<div class="container border border-primary rounded p-4">
+  <h2>Counter</h2>
+  <p>Initial count number is: {{ count() }}</p>
+
+  <div class="d-flex ml-2">
+    <button type="button" class="btn btn-outline-primary me-2 w-25" (click)="onIncrementCount()">+</button>
+    <button type="button" class="btn btn-outline-primary me-2 w-25" (click)="onDecrementCount()">-</button>
+    <button type="button" class="btn btn-outline-info w-25" (click)="onResetCount()">Reset</button>
+  </div>
+</div>
