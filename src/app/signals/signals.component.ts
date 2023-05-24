@@ -1,4 +1,4 @@
-import {Component, computed, OnInit, Signal, signal, WritableSignal} from '@angular/core';
+import {Component, computed, effect, OnInit, Signal, signal, WritableSignal} from '@angular/core';
 
 @Component({
   selector: 'app-signals',
@@ -11,12 +11,14 @@ export class SignalsComponent implements OnInit {
   todos: WritableSignal<any> = signal([{title: 'Angular Signals', done: false}]);
   doubleCount: Signal<number> = computed(() => this.count() * 2);
 
-
   constructor() {
+    effect(() => {
+      console.log('Count changed! ', this.count());
+      console.log('Todos changed! ', this.todos());
+    });
   }
 
   ngOnInit() {
-
   }
 
   onIncrementCount() {
