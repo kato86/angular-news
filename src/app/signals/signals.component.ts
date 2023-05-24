@@ -11,6 +11,7 @@ export class SignalsComponent implements OnInit {
   todos: WritableSignal<any> = signal([{title: 'Angular Signals', done: false}]);
   doubleCount: Signal<number> = computed(() => this.count() * 2);
 
+
   constructor() {
   }
 
@@ -43,5 +44,5 @@ export class SignalsComponent implements OnInit {
       value[0].done = false;
     })
   }
-  
+
 }
