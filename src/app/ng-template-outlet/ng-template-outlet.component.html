@@ -1,0 +1,85 @@
+<h3>NgTemplateOutlet</h3>
+<hr>
+<ng-template #temp1>
+  <p>Template #1</p>
+  <p>Will be displayed on the div *ngTemplateOutlet="myTempRef"</p>
+</ng-template>
+
+<p><strong>Step #1</strong></p>
+
+<ng-container *ngTemplateOutlet="temp1">
+  <p>Not displayed!</p>
+</ng-container>
+
+<p><strong>Step #2</strong></p>
+
+<div *ngTemplateOutlet="temp1"></div>
+
+<p><strong>Step #3</strong></p>
+
+<h3>Passing data</h3>
+<hr>
+
+<ng-template let-value="value" #message>
+  <p>Value {{ value }}</p>
+</ng-template>
+<!--Syntax 1-->
+<ng-container [ngTemplateOutlet]="message" [ngTemplateOutletContext]="{value: '123'}"></ng-container>
+<!--Syntax 2-->
+<ng-container *ngTemplateOutlet="message; context:{value:321}"></ng-container>
+
+<h4>Pass more than one value</h4>
+<ng-template let-name="name" let-message="message" #temp2>
+  <p>My name is {{ name }}. {{ message }}</p>
+</ng-template>
+
+<ng-container [ngTemplateOutlet]="temp2" [ngTemplateOutletContext]="{name: 'Bob', message:'Hello!'}"></ng-container>
+
+<h4>Pass an object</h4>
+<ng-template let-person='person' #temp3>
+  <p>Hello {{ person.name }}. {{ person.message }}</p>
+</ng-template>
+
+<ng-container
+  [ngTemplateOutlet]="temp3"
+  [ngTemplateOutletContext]="{person: {name: 'Bob', message: 'Welcome'}}">
+</ng-container>
+
+<h3>$implicit</h3>
+<hr>
+
+<ng-template let-name let-message="message" #temp4>
+  <p>Hi {{ name }}. {{ message }}</p>
+</ng-template>
+
+<ng-container
+  [ngTemplateOutlet]="temp4"
+  [ngTemplateOutletContext]="{ $implicit: 'Alex', message: 'Welcome' }">
+</ng-container>
+
+<h3>Passing Template to a Child Component</h3>
+<hr>
+<p>Parent component</p>
+<ng-template #parentTemp>
+  <p>Child component from parent!</p>
+</ng-template>
+
+<app-child-template [customTemp]="parentTemp"></app-child-template>
+
+<h3>Using ViewChild to access template</h3>
+<hr>
+
+<p>Parent component</p>
+<ng-template #parentTemp2>
+  <p>Parent send to Child</p>
+</ng-template>
+
+<app-child-template [customTemp]="parentTemp2"></app-child-template>
+
+<h3>Content projection</h3>
+<hr>
+
+<p>Parent Component</p>
+<app-child-template>
+  <p>From Parent to Child</p>
+</app-child-template>

@@ -1,0 +1,9 @@
+<ng-container *ngTemplateOutlet="customTemp"></ng-container>
+
+
+<ng-template #parentTemp>
+  <p>Child component</p>
+  <ng-content></ng-content>
+</ng-template>
+
+<ng-template [ngTemplateOutlet]="parentTemp"></ng-template>
