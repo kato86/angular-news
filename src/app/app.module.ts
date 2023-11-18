@@ -7,6 +7,7 @@ import {SignalsComponent} from "./signals/signals.component";
 import {RxjsToSignalComponent} from "./signals/rxjs-to-signal/rxjs-to-signal.component";
 import { NgTemplateOutletComponent } from './ng-template-outlet/ng-template-outlet.component';
 import { ChildTemplateComponent } from './ng-template-outlet/child-template/child-template.component';
+import {App17Module} from "./angular17/app17.module";
 
 @NgModule({
   declarations: [
@@ -17,6 +18,7 @@ import { ChildTemplateComponent } from './ng-template-outlet/child-template/chil
     ChildTemplateComponent
   ],
   imports: [
+    App17Module,
     BrowserModule,
     RouterModule.forRoot([
       {path: 'signals', component: SignalsComponent},

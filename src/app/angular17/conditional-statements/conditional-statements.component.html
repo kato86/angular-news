@@ -1,0 +1,50 @@
+<div class="d-flex justify-content-start mb-5">
+  <button type="button" class="btn btn-outline-secondary me-2"
+          (click)="loggedIn = !loggedIn">{{loggedIn ? 'LogIn' : 'LogOut'}}</button>
+</div>
+
+<!--IF-->
+<h3>IF</h3>
+<!--OLD WAY-->
+<!--<div *ngIf="loggedIn; else anonymous">-->
+<!--  This user is logged in-->
+<!--</div>-->
+<!--<ng-template #anonymous>-->
+<!--  This user is not logged in-->
+<!--</ng-template>-->
+
+<!--NEW WAY-->
+@if (loggedIn) {
+This user is logged in
+} @else {
+This user is not logged in
+}
+<hr>
+<!--SWITCH-->
+<h3>SWITCH</h3>
+<!--OLD WAY-->
+<!--<div [ngSwitch]="loggedIn">-->
+<!--  <div *ngSwitchCase="true">True</div>-->
+<!--  <div *ngSwitchCase="false">False</div>-->
+<!--  <div *ngSwitchDefault>False</div>-->
+<!--</div>-->
+
+<!--NEW WAY-->
+@switch (loggedIn) {
+@case (true) {
+<div>True</div> }
+@case (false) {
+<div>False</div> }
+@default {
+<div>Default</div> }
+  }
+
+<!--FOR-->
+<h3>FOR</h3>
+
+<!--NEW WAY-->
+@for (user of users; track user.id) {
+{{ user.name }}
+  } @empty {
+Empty list of users
+}

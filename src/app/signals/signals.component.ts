@@ -40,15 +40,15 @@ export class SignalsComponent implements OnInit {
   }
 
   setTodoTrue() {
-    this.todos.mutate(value => {
-      value[0].done = true;
-    })
+    // this.todos.mutate(value => {
+    //   value[0].done = true;
+    // })
   }
 
   setTodoFalse() {
-    this.todos.mutate(value => {
-      value[0].done = false;
-    })
+    // this.todos.mutate(value => {
+    //   value[0].done = false;
+    // })
   }
 
   setRxJSCount() {
